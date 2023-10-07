@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Carrusel con foto informativa</string>
+    <string name="Next_Button">Next</string>
+    <string name="Previous_Button">Previous</string>
 </resources>

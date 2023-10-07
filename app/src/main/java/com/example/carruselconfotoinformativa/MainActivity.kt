@@ -4,10 +4,14 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
@@ -24,6 +28,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.carruselconfotoinformativa.ui.theme.CarruselConFotoInformativaTheme
 
 class MainActivity : ComponentActivity() {
@@ -53,17 +58,20 @@ fun CarruselWithButtonImageAndDescription(modifier: Modifier = Modifier) {
         9 -> R.drawable.foto_9
         else -> R.drawable.foto_10
     }
+    val imageSizeModifier = Modifier
+        .fillMaxWidth()
+        .height(200.dp)
     val DescriptionImage = when (result) {
-        1 -> ""
-        2 -> ""
-        3 -> ""
-        4 -> ""
-        5 -> ""
-        6 -> ""
-        7 -> ""
-        8 -> ""
-        9 -> ""
-        else -> ""
+        1 -> "Primera foto"
+        2 -> "Segunda foto"
+        3 -> "Tercera foto"
+        4 -> "Cuarta foto"
+        5 -> "Quinta foto"
+        6 -> "Sexta foto"
+        7 -> "Septima foto"
+        8 -> "Octava foto"
+        9 -> "Novena foto"
+        else -> "Decima foto"
     }
     Column (
         modifier = modifier,
@@ -71,17 +79,36 @@ fun CarruselWithButtonImageAndDescription(modifier: Modifier = Modifier) {
     ) {
         Image(
             painter = painterResource(id = imageResource),
-            contentDescription = result.toString()
+            contentDescription = result.toString(),
+            modifier = imageSizeModifier
         )
-        Spacer(modifier = Modifier.height(16.dp))
-        Text(text = DescriptionImage)
-        Spacer(modifier = Modifier.height(16.dp))
-        Button(onClick = { result=result ++ }) {
-            Text(stringResource(R.string.app_name))
+        Spacer(modifier = Modifier.height(40.dp))
+
+        Text(
+            text = DescriptionImage,
+            fontSize = 24.sp,
+            )
+
+        Spacer(modifier = Modifier.height(100.dp))
+    Row (
+        modifier = Modifier.fillMaxWidth(),
+        horizontalArrangement = Arrangement.SpaceBetween
+    ){
+        Button(
+            onClick = { result = if(result == 1) 10 else result - 1 },
+            modifier = Modifier.weight(1f)
+        ) {
+            Text(stringResource(R.string.Previous_Button))
         }
-        Spacer(modifier = Modifier.height(16.dp))
-        Button(onClick = { result=result -- }) {
-            Text(stringResource(R.string.app_name))
+        Spacer(modifier = Modifier.width(100.dp))
+
+        Button(
+            onClick = { result = if(result == 10) 1 else result + 1 },
+            modifier = Modifier.weight(1f)
+        ) {
+            Text(stringResource(R.string.Next_Button))
+        }
+
         }
     }
 }
