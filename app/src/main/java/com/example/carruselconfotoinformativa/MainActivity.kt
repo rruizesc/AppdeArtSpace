@@ -88,7 +88,6 @@ fun CarruselWithButtonImageAndDescription(initialResult: Int, modifier: Modifier
     val imageSizeModifier = Modifier
         .fillMaxWidth()
         .height(imageSize)
-        .border(4.dp, MaterialTheme.colorScheme.primary, MaterialTheme.shapes.medium)
 
     Column (
         modifier = modifier,
@@ -96,11 +95,19 @@ fun CarruselWithButtonImageAndDescription(initialResult: Int, modifier: Modifier
     ) {
         Spacer(modifier = Modifier.height(40.dp))
 
-        Image(
-            painter = painterResource(id = imageResource),
-            contentDescription = result.toString(),
-            modifier = imageSizeModifier
-        )
+        Box(
+            modifier = Modifier
+                .width(300.dp)
+                .height(300.dp)
+                .border(4.dp, MaterialTheme.colorScheme.primary, MaterialTheme.shapes.medium)
+                .padding(16.dp)
+        ) {
+            Image(
+                painter = painterResource(id = imageResource),
+                contentDescription = result.toString(),
+                modifier = imageSizeModifier
+            )
+        }
         Spacer(modifier = Modifier.height(40.dp))
 
         Text(
@@ -115,7 +122,6 @@ fun CarruselWithButtonImageAndDescription(initialResult: Int, modifier: Modifier
     Row (
         modifier = Modifier
             .fillMaxWidth()
-            .padding(16.dp)
             .height(buttonSize),
         horizontalArrangement = Arrangement.SpaceBetween
     ){
