@@ -4,13 +4,16 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.material3.Button
@@ -34,18 +37,19 @@ import com.example.carruselconfotoinformativa.ui.theme.CarruselConFotoInformativ
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val initialResult = (1..10).random()
         setContent {
             CarruselConFotoInformativaTheme {
-                CarruselConFotoInformativaApp()
-                var result = (1..10).random();
+                CarruselWithButtonImageAndDescription(initialResult)
+
                 }
             }
         }
     }
 
 @Composable
-fun CarruselWithButtonImageAndDescription(modifier: Modifier = Modifier) {
-    var result by remember { mutableStateOf(1) }
+fun CarruselWithButtonImageAndDescription(initialResult: Int, modifier: Modifier = Modifier) {
+    var result by remember { mutableStateOf(initialResult) }
     val imageResource = when (result) {
         1 -> R.drawable.foto_1
         2 -> R.drawable.foto_2
@@ -60,8 +64,8 @@ fun CarruselWithButtonImageAndDescription(modifier: Modifier = Modifier) {
     }
     val imageSizeModifier = Modifier
         .fillMaxWidth()
-        .height(200.dp)
-    val DescriptionImage = when (result) {
+        .height(250.dp)
+    val descriptionImage = when (result) {
         1 -> "Primera foto"
         2 -> "Segunda foto"
         3 -> "Tercera foto"
@@ -85,8 +89,8 @@ fun CarruselWithButtonImageAndDescription(modifier: Modifier = Modifier) {
         Spacer(modifier = Modifier.height(40.dp))
 
         Text(
-            text = DescriptionImage,
-            fontSize = 24.sp,
+            text = descriptionImage,
+            fontSize = 30.sp,
             )
 
         Spacer(modifier = Modifier.height(100.dp))
@@ -116,9 +120,15 @@ fun CarruselWithButtonImageAndDescription(modifier: Modifier = Modifier) {
 @Preview(showBackground = true)
 @Composable
 fun CarruselConFotoInformativaApp() {
-    CarruselWithButtonImageAndDescription(modifier = Modifier
-        .fillMaxSize()
-        .wrapContentSize(Alignment.Center))
-
-
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(MaterialTheme.colorScheme.background)
+            .padding(16.dp)
+    ) {
+        CarruselWithButtonImageAndDescription(initialResult = 1, modifier = Modifier
+            .align(Alignment.Center)
+            .padding(16.dp)
+        )
+    }
 }
