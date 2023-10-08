@@ -5,6 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -15,6 +16,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
@@ -27,10 +29,13 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.coerceAtMost
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.min
 import androidx.compose.ui.unit.sp
 import com.example.carruselconfotoinformativa.ui.theme.CarruselConFotoInformativaTheme
 
@@ -62,25 +67,35 @@ fun CarruselWithButtonImageAndDescription(initialResult: Int, modifier: Modifier
         9 -> R.drawable.foto_9
         else -> R.drawable.foto_10
     }
+
+    val descriptionImage = when (result) {
+        1 -> stringResource(R.string.First_Photo)
+        2 -> stringResource(R.string.Second_Photo)
+        3 -> stringResource(R.string.Third_Photo)
+        4 -> stringResource(R.string.Fourth_Photo)
+        5 -> stringResource(R.string.Fifth_Photo)
+        6 -> stringResource(R.string.Sixth_Photo)
+        7 -> stringResource(R.string.Seventh_Photo)
+        8 -> stringResource(R.string.Eight_Photo)
+        9 -> stringResource(R.string.Ninth_Photo)
+        else -> stringResource(R.string.Tenth_Photo)
+    }
+
+    val screenWidth = LocalConfiguration.current.screenWidthDp.dp
+    val buttonSize = (screenWidth / 4).coerceAtMost(100.dp)
+    val imageSize = screenWidth.coerceIn(0.dp, 300.dp)
+
     val imageSizeModifier = Modifier
         .fillMaxWidth()
-        .height(250.dp)
-    val descriptionImage = when (result) {
-        1 -> "Primera foto"
-        2 -> "Segunda foto"
-        3 -> "Tercera foto"
-        4 -> "Cuarta foto"
-        5 -> "Quinta foto"
-        6 -> "Sexta foto"
-        7 -> "Septima foto"
-        8 -> "Octava foto"
-        9 -> "Novena foto"
-        else -> "Decima foto"
-    }
+        .height(imageSize)
+        .border(4.dp, MaterialTheme.colorScheme.primary, MaterialTheme.shapes.medium)
+
     Column (
         modifier = modifier,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
+        Spacer(modifier = Modifier.height(40.dp))
+
         Image(
             painter = painterResource(id = imageResource),
             contentDescription = result.toString(),
@@ -91,24 +106,34 @@ fun CarruselWithButtonImageAndDescription(initialResult: Int, modifier: Modifier
         Text(
             text = descriptionImage,
             fontSize = 30.sp,
+            modifier = Modifier
+                .border(4.dp, MaterialTheme.colorScheme.primary, MaterialTheme.shapes.medium)
+                .padding(16.dp)
             )
 
-        Spacer(modifier = Modifier.height(100.dp))
+        Spacer(modifier = Modifier.height(200.dp))
     Row (
-        modifier = Modifier.fillMaxWidth(),
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(16.dp)
+            .height(buttonSize),
         horizontalArrangement = Arrangement.SpaceBetween
     ){
         Button(
             onClick = { result = if(result == 1) 10 else result - 1 },
-            modifier = Modifier.weight(1f)
+            modifier = Modifier
+                .weight(1f)
+                .height(buttonSize)
         ) {
             Text(stringResource(R.string.Previous_Button))
         }
-        Spacer(modifier = Modifier.width(100.dp))
+        Spacer(modifier = Modifier.width(150.dp))
 
         Button(
             onClick = { result = if(result == 10) 1 else result + 1 },
-            modifier = Modifier.weight(1f)
+            modifier = Modifier
+                .weight(1f)
+                .height(buttonSize)
         ) {
             Text(stringResource(R.string.Next_Button))
         }

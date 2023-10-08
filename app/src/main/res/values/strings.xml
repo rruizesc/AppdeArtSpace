@@ -1,5 +1,15 @@
 <resources>
     <string name="app_name">Carrusel con foto informativa</string>
+    <string name="First_Photo">1</string>
+    <string name="Second_Photo">2</string>
+    <string name="Third_Photo">3</string>
+    <string name="Fourth_Photo">4</string>
+    <string name="Fifth_Photo">5</string>
+    <string name="Sixth_Photo">6</string>
+    <string name="Seventh_Photo">7</string>
+    <string name="Eight_Photo">8</string>
+    <string name="Ninth_Photo">9</string>
+    <string name="Tenth_Photo">10</string>
     <string name="Next_Button">Next</string>
     <string name="Previous_Button">Previous</string>
 </resources>
