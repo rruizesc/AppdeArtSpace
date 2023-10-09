@@ -29,6 +29,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -69,20 +70,20 @@ fun CarruselWithButtonImageAndDescription(initialResult: Int, modifier: Modifier
     }
 
     val descriptionImage = when (result) {
-        1 -> stringResource(R.string.First_Photo)
-        2 -> stringResource(R.string.Second_Photo)
-        3 -> stringResource(R.string.Third_Photo)
-        4 -> stringResource(R.string.Fourth_Photo)
-        5 -> stringResource(R.string.Fifth_Photo)
-        6 -> stringResource(R.string.Sixth_Photo)
-        7 -> stringResource(R.string.Seventh_Photo)
-        8 -> stringResource(R.string.Eight_Photo)
-        9 -> stringResource(R.string.Ninth_Photo)
-        else -> stringResource(R.string.Tenth_Photo)
+        1 -> stringResource(R.string.descripcion_primera)
+        2 -> stringResource(R.string.descripcion_segunda)
+        3 -> stringResource(R.string.descripcion_tercera)
+        4 -> stringResource(R.string.descripcion_cuarta)
+        5 -> stringResource(R.string.descripcion_quinta)
+        6 -> stringResource(R.string.descripcion_sexta)
+        7 -> stringResource(R.string.descripcion_septima)
+        8 -> stringResource(R.string.descripcion_octava)
+        9 -> stringResource(R.string.descripcion_novena)
+        else -> stringResource(R.string.descripcion_decima)
     }
 
     val screenWidth = LocalConfiguration.current.screenWidthDp.dp
-    val buttonSize = (screenWidth / 4).coerceAtMost(100.dp)
+    val buttonSize = (screenWidth / 4).coerceAtMost(50.dp)
     val imageSize = screenWidth.coerceIn(0.dp, 300.dp)
 
     val imageSizeModifier = Modifier
@@ -99,7 +100,7 @@ fun CarruselWithButtonImageAndDescription(initialResult: Int, modifier: Modifier
             modifier = Modifier
                 .width(300.dp)
                 .height(300.dp)
-                .border(4.dp, MaterialTheme.colorScheme.primary, MaterialTheme.shapes.medium)
+                .background(Color(0x660000FF))
                 .padding(16.dp)
         ) {
             Image(
@@ -110,13 +111,17 @@ fun CarruselWithButtonImageAndDescription(initialResult: Int, modifier: Modifier
         }
         Spacer(modifier = Modifier.height(40.dp))
 
-        Text(
-            text = descriptionImage,
-            fontSize = 30.sp,
+        Box(
             modifier = Modifier
-                .border(4.dp, MaterialTheme.colorScheme.primary, MaterialTheme.shapes.medium)
+                .background(Color(0x660000FF))
                 .padding(16.dp)
+        ) {
+            Text(
+                text = descriptionImage,
+                fontSize = 20.sp,
+                color = Color.White
             )
+        }
 
         Spacer(modifier = Modifier.height(200.dp))
     Row (

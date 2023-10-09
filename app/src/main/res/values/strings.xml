@@ -1,15 +1,45 @@
 <resources>
     <string name="app_name">Carrusel con foto informativa</string>
-    <string name="First_Photo">1</string>
-    <string name="Second_Photo">2</string>
-    <string name="Third_Photo">3</string>
-    <string name="Fourth_Photo">4</string>
-    <string name="Fifth_Photo">5</string>
-    <string name="Sixth_Photo">6</string>
-    <string name="Seventh_Photo">7</string>
-    <string name="Eight_Photo">8</string>
-    <string name="Ninth_Photo">9</string>
-    <string name="Tenth_Photo">10</string>
+    <string name="descripcion_primera">
+        El taj Mahal es considerado el más bello ejemplo de palacio,
+        con un estilo que combina islámica, persa, india e incluso turca.
+    </string>
+    <string name="descripcion_segunda">
+        La catedral de Notre Dame es una catedral de culto católico que se
+        sitúa en la pequeña isla de Cité.
+    </string>
+    <string name="descripcion_tercera">
+        El Coliseo o Anfiteatro Flavio, es un anfiteatro de la época del imperio
+        Romano, construido en siglo I d.C.
+    </string>
+    <string name="descripcion_cuarta">
+        La torre Eiffel, es una estructura de hierro pudelado ubicada en el extremo
+        del campo de Marte a la orilla del río Sena.
+    </string>
+    <string name="descripcion_quinta">
+        El templo de Kukulcán es un edificio prehipánico ubicado en la península de
+        Yucatán, en México.
+    </string>
+    <string name="descripcion_sexta">
+        La puerta de Alcalá es una de las cinco antiguas puertas reales que daban acceso
+        a la ciudad de Madrid.
+    </string>
+    <string name="descripcion_septima">
+        El Shitennō-ji es un templo budista situado en Japón, siendo el primer templo
+        budista.
+    </string>
+    <string name="descripcion_octava">
+        Situado en una colina con vistas al valle y a la ciudad, Kiyomizu-dera es el
+        templo más visitado de Kioto. Fue construido en honor a Kannon.
+    </string>
+    <string name="descripcion_novena">
+        El puente Golden Gate es el puente colgante que une la península de San Francisco por el norte
+        con el sur del condadp de Marín, cerca de Sausalito.
+    </string>
+    <string name="descripcion_decima">
+        El acueducto de Segovia es una obra de Ingeniería Romana que data del siglo II d.C que cruza por
+        medio de la ciudad.
+    </string>
     <string name="Next_Button">Next</string>
     <string name="Previous_Button">Previous</string>
 </resources>
