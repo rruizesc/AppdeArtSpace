@@ -1,44 +1,73 @@
 <resources>
     <string name="app_name">Carrusel con foto informativa</string>
     <string name="descripcion_primera">
-        El taj Mahal es considerado el más bello ejemplo de palacio,
+        El taj Mahal es  el palacio más bello
         con un estilo que combina islámica, persa, india e incluso turca.
+    </string>
+    <string name="ciudad_primera">
+        India - 1632
     </string>
     <string name="descripcion_segunda">
         La catedral de Notre Dame es una catedral de culto católico que se
         sitúa en la pequeña isla de Cité.
     </string>
+    <string name="ciudad_segunda">
+        París - 1163
+    </string>
     <string name="descripcion_tercera">
         El Coliseo o Anfiteatro Flavio, es un anfiteatro de la época del imperio
         Romano, construido en siglo I d.C.
     </string>
+    <string name="ciudad_tercera">
+        Roma - 72d.C.
+    </string>
     <string name="descripcion_cuarta">
         La torre Eiffel, es una estructura de hierro pudelado ubicada en el extremo
-        del campo de Marte a la orilla del río Sena.
+        del campo de Marte.
+    </string>
+    <string name="ciudad_cuarta">
+        París - 1887
     </string>
     <string name="descripcion_quinta">
         El templo de Kukulcán es un edificio prehipánico ubicado en la península de
         Yucatán, en México.
     </string>
+    <string name="ciudad_quinta">
+        México - 12 d.C.
+    </string>
     <string name="descripcion_sexta">
         La puerta de Alcalá es una de las cinco antiguas puertas reales que daban acceso
         a la ciudad de Madrid.
+    </string>
+    <string name="ciudad_sexta">
+        Madrid - 1778
     </string>
     <string name="descripcion_septima">
         El Shitennō-ji es un templo budista situado en Japón, siendo el primer templo
         budista.
     </string>
+    <string name="ciudad_septima">
+        Japón - 593
+    </string>
     <string name="descripcion_octava">
         Situado en una colina con vistas al valle y a la ciudad, Kiyomizu-dera es el
-        templo más visitado de Kioto. Fue construido en honor a Kannon.
+        templo más visitado de Kioto.
+    </string>
+    <string name="ciudad_octava">
+        Kioto - 798
     </string>
     <string name="descripcion_novena">
-        El puente Golden Gate es el puente colgante que une la península de San Francisco por el norte
-        con el sur del condadp de Marín, cerca de Sausalito.
+        El puente Golden Gate es el puente colgante que une la península de San Francisco con el condado de Marín.
+    </string>
+    <string name="ciudad_novena">
+        California - 1933
     </string>
     <string name="descripcion_decima">
-        El acueducto de Segovia es una obra de Ingeniería Romana que data del siglo II d.C que cruza por
+        El acueducto de Segovia es una obra de Ingeniería Romana que cruza por
         medio de la ciudad.
+    </string>
+    <string name="ciudad_decima">
+        Segovia - 2 d.C.
     </string>
     <string name="Next_Button">Next</string>
     <string name="Previous_Button">Previous</string>

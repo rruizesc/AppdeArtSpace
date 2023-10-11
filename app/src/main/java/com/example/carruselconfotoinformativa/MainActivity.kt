@@ -33,6 +33,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.coerceAtMost
 import androidx.compose.ui.unit.dp
@@ -68,7 +69,6 @@ fun CarruselWithButtonImageAndDescription(initialResult: Int, modifier: Modifier
         9 -> R.drawable.foto_9
         else -> R.drawable.foto_10
     }
-
     val descriptionImage = when (result) {
         1 -> stringResource(R.string.descripcion_primera)
         2 -> stringResource(R.string.descripcion_segunda)
@@ -81,7 +81,18 @@ fun CarruselWithButtonImageAndDescription(initialResult: Int, modifier: Modifier
         9 -> stringResource(R.string.descripcion_novena)
         else -> stringResource(R.string.descripcion_decima)
     }
-
+    val cityAndYear = when (result){
+        1 -> stringResource(R.string.ciudad_primera)
+        2 -> stringResource(R.string.ciudad_segunda)
+        3 -> stringResource(R.string.ciudad_tercera)
+        4 -> stringResource(R.string.ciudad_cuarta)
+        5 -> stringResource(R.string.ciudad_quinta)
+        6 -> stringResource(R.string.ciudad_sexta)
+        7 -> stringResource(R.string.ciudad_septima)
+        8 -> stringResource(R.string.ciudad_octava)
+        9 -> stringResource(R.string.ciudad_novena)
+        else -> stringResource(R.string.ciudad_decima)
+    }
     val screenWidth = LocalConfiguration.current.screenWidthDp.dp
     val buttonSize = (screenWidth / 4).coerceAtMost(50.dp)
     val imageSize = screenWidth.coerceIn(0.dp, 300.dp)
@@ -116,11 +127,21 @@ fun CarruselWithButtonImageAndDescription(initialResult: Int, modifier: Modifier
                 .background(Color(0x660000FF))
                 .padding(16.dp)
         ) {
-            Text(
-                text = descriptionImage,
-                fontSize = 20.sp,
-                color = Color.White
-            )
+            Column {
+
+
+                Text(
+                    text = descriptionImage,
+                    fontSize = 20.sp,
+                    color = Color.White
+                )
+                Text(
+                    text = cityAndYear,
+                    fontSize = 20.sp,
+                    color = Color.Black,
+                    fontWeight = FontWeight.Bold
+                )
+            }
         }
 
         Spacer(modifier = Modifier.height(200.dp))
